@@ -11,12 +11,14 @@
 
 % useful packages
 \usepackage{graphicx}  % figures
+\usepackage{textcomp}  % load before gemsymb to suppress ``Not defining {\pertthousand / \micro}'' warnings
 \usepackage{gensymb}  % \degree
 \usepackage{siunitx}  % SI units
 \usepackage{tabularx}  % nice single page tables
 \usepackage{longtable}  % tables spanning multiple pages
 \usepackage{hyperref}  % URLs
-\usepackage[autostyle, english = american]{csquotes}  % quote orientation
+\usepackage[english]{babel}  % load before csquotes to suppose ``No multilingual support'' warning
+\usepackage[autostyle,english=american]{csquotes}  % quote orientation
 \MakeOuterQuote{"}
 
 % use png first, otherwise pdf
@@ -28,7 +30,7 @@
             With Two Line Titles}
 \author{Your name}
 \dept{Your department}
-\principaladviser{Professor name 1}
+\principaladvisor{Professor name 1}
 \firstreader{Professor name 2}
 \secondreader{Professor name 3}
 % \thirdreader{Jane Supernumerary}  % uncomment if needed
