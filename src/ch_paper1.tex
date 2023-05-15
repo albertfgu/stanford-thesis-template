@@ -1,3 +1,6 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
 % Full title as you would like it to appear on the page
 \chapter{Long paper 1 chapter title}
 % Short title that appears in the header of pages within the chapter
@@ -21,7 +24,7 @@ d_t = \frac{c - pn_t}{n_t}
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=14cm, keepaspectratio]{figs/paper1/fig1.png}
+\includegraphics[width=14cm, keepaspectratio]{paper1/fig1.png}
 \caption[Short figure caption for List of Figures]{Long figure caption text that explains everything.}
 \label{fig:paper1_fig1}
 \end{figure}
@@ -76,3 +79,6 @@ More text here.
 
 \section{Conclusions}
 The end of the paper.
+
+\ifSubfilesClassLoaded{\bibliography{../mybib}}{}
+\end{document}

@@ -7,23 +7,32 @@
 % See the suthesis-2e.sty file for documentation
 %
 \documentclass[12pt]{report}
-\usepackage{suthesis-2e}  % (modified) Stanford thesis style file
+\usepackage{suthesis-2e}  % Stanford thesis style file
 
 % useful packages
-\usepackage{graphicx}  % figures
-\usepackage{textcomp}  % load before gemsymb to suppress ``Not defining {\pertthousand / \micro}'' warnings
+\usepackage{graphicx}  % Figures
+\usepackage{textcomp}  % Load before gemsymb to suppress ``Not defining {\pertthousand / \micro}'' warnings
 \usepackage{gensymb}  % \degree
 \usepackage{siunitx}  % SI units
-\usepackage{tabularx}  % nice single page tables
-\usepackage{longtable}  % tables spanning multiple pages
+\usepackage{tabularx}  % Nice single page tables
+\usepackage{longtable}  % Tables spanning multiple pages
 \usepackage{hyperref}  % URLs
-\usepackage[english]{babel}  % load before csquotes to suppose ``No multilingual support'' warning
+\usepackage[english]{babel}  % Load before csquotes to suppose ``No multilingual support'' warning
 \usepackage[autostyle,english=american]{csquotes}  % quote orientation
 \MakeOuterQuote{"}
 
-% use png first, otherwise pdf
+% Use png first, otherwise pdf
 % (useful for faster compile times, for final submission switch order)
 \DeclareGraphicsExtensions{.png,.pdf}
+
+% Setup subfiles package for better multi-file management
+% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
+% https://en.wikibooks.org/wiki/LaTeX/Modular_Documents#Separate_compilation_of_child_documents
+\graphicspath{{fig/}{../fig/}}
+\usepackage{subfiles}  % Best loaded last in the preamble
+
+% Set bibliographystyle in preamble so that subfiles also see it
+\bibliographystyle{unsrt}  % Can change to fit your field e.g. pnas2009
 
 \begin{document}
 \title{How to Write Theses\\
@@ -36,26 +45,25 @@
 % \thirdreader{Jane Supernumerary}  % uncomment if needed
 % \fourthreader{Severus Snape}  % uncomment if needed
  
-% no signature or copyright pages in online submission
+% No signature or copyright pages in online submission
 % (they are added by the library)
 
-% including chapters, no .tex extension necessary
+% Including chapters, no .tex extension necessary
 \beforepreface
-\include{preface_abstract}
-\include{preface_acknowledgements}
+\subfile{src/preface_abstract}
+\subfile{src/preface_acknowledgements}
 \afterpreface
-\include{ch_intro}
-\include{ch_paper1}
-\include{ch_conclusion}
+\subfile{src/ch_intro}
+\subfile{src/ch_paper1}
+\subfile{src/ch_conclusion}
 
-% uncomment below if you have an appendix
+% Uncomment below if you have an appendix
 % \appendix
 % \chapter{A Long Proof}
 
-\bibliographystyle{unsrt}  % can change to fit your field e.g. pnas2009
 \bibliography{mybib}  % no .bib extension necessary
 
-% adds a non-numbered signature page at end (for printing on ACID-FREE paper)
+% Adds a non-numbered signature page at end (for printing on ACID-FREE paper)
 % (remember to comment out when submitting final version)
 \onlinesignature
 
