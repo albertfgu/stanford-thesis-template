@@ -5,8 +5,15 @@
 % 
 % Example of use below
 % See the suthesis-2e.sty file for documentation
-%
+
 \documentclass[12pt]{report}
+% It would be more convenient to have the .sty in a different location, e.g.
+% \usepackage{../sty/suthesis-2e}
+% however this gives a warning that requires manipulating environment variables
+% such as TEXMFHOME or TEXINPUTS to resolve, or manipulating the input path:
+% \makeatletter
+% \def\input@path{{../sty/}}
+% \makeatother
 \usepackage{suthesis-2e}  % Stanford thesis style file
 
 % useful packages
@@ -26,13 +33,21 @@
 \DeclareGraphicsExtensions{.png,.pdf}
 
 % Setup subfiles package for better multi-file management
-% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
-% https://en.wikibooks.org/wiki/LaTeX/Modular_Documents#Separate_compilation_of_child_documents
-\graphicspath{{fig/}{../fig/}}
+\graphicspath{{../fig/}}
 \usepackage{subfiles}  % Best loaded last in the preamble
 
-% Set bibliographystyle in preamble so that subfiles also see it
-\bibliographystyle{unsrt}  % Can change to fit your field e.g. pnas2009
+% If using bibtex as in original template:
+% \bibliographystyle{unsrt}  % Can change to fit your field e.g. pnas2009
+
+% More modern biblatex bibliography management
+% Cite with author-year style; can use `numeric` for numbers instead
+% Sort by default (year, name, title)
+\usepackage[citestyle=authoryear,sorting=ynt]{biblatex}
+% Alias bibtex commands to biblatex versions for convenience
+\newcommand{\citep}{\parencite}
+\newcommand{\citet}{\textcite}
+% Add bibliography files; can be split into multiple files
+\addbibresource{\subfix{../bib/mybib.bib}}
 
 \begin{document}
 \title{How to Write Theses\\
@@ -50,18 +65,20 @@
 
 % Including chapters, no .tex extension necessary
 \beforepreface
-\subfile{src/preface_abstract}
-\subfile{src/preface_acknowledgements}
+\subfile{preface_abstract}
+\subfile{preface_acknowledgements}
 \afterpreface
-\subfile{src/ch_intro}
-\subfile{src/ch_paper1}
-\subfile{src/ch_conclusion}
+\subfile{ch_intro}
+\subfile{ch_paper1}
+\subfile{ch_conclusion}
 
 % Uncomment below if you have an appendix
 % \appendix
 % \chapter{A Long Proof}
 
-\bibliography{mybib}  % no .bib extension necessary
+% If using bibtex:
+% \bibliography{mybib}
+\printbibliography
 
 % Adds a non-numbered signature page at end (for printing on ACID-FREE paper)
 % (remember to comment out when submitting final version)

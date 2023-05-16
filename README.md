@@ -1,3 +1,32 @@
+Forked from https://github.com/dcroote/stanford-thesis-example
+
+Two style files are provided:
+- `suthesis-2e-dcroote.sty` is the one provided with this template (Modified from Derek Croote 2019 from the Emma Pease 2014 version).
+- `suthesis-2e.sty` is the "official" template by [Stanford](https://library.stanford.edu/research/bibliography-management/latex-bibtex-and-overleaf) (Emma Pease 2016)
+
+
+## subfiles
+
+One of the main changes in this fork is structuring the chapters using the `subfiles` package instead of using the more common `\input` or `\include`. This package provides the functionality of allowing compilation of individual chapters, which can significantly speed up compilation times for a long thesis.
+
+In order to use `subfiles`, some particular choices in the folder structure are needed. For example, It is more convenient to place all `.tex` sources (including the `main.tex` file as well as individual chapters) in the same folder, so that relative paths to resources (e.g. figures and bibliography files) are constant from all source files, allowing any of them to be compiled as the main file without modification.
+
+Similarly, it would be convenient to move the style files to their own subdirectory, e.g. `sty/suthesis-2e.sty`. However, this requires importing the package in the `.tex` files as `\usepackage{../sty/suthesis-2e}` instead of `\usepackage{suthesis-2e}`, which works but produces the LaTeX warning "You have requested package `../style/suthesis-2e', but the package provides `suthesis-2e'".
+There are many workarounds for this but they are inconvenient enough 
+
+Resources:
+- [https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects](https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects)
+- [https://en.wikibooks.org/wiki/LaTeX/Modular_Documents#Separate_compilation_of_child_documents](https://en.wikibooks.org/wiki/LaTeX/Modular_Documents#Separate_compilation_of_child_documents)
+
+## biblatex
+
+This fork also moves from BibTeX to the `biblatex` package, which is a more modern and better option.
+It additionally integrates more easily with `subfiles`.
+
+Resources:
+- [https://www.overleaf.com/learn/latex/Articles/Getting_started_with_BibLaTeX](https://www.overleaf.com/learn/latex/Articles/Getting_started_with_BibLaTeX)
+- [https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex](https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex)
+
 # Stanford LaTeX Thesis Example
 
 [![Build status](https://github.com/dcroote/stanford-thesis-example/workflows/CI/badge.svg?branch=master)](https://github.com/dcroote/stanford-thesis-example/actions?query=workflow%3ACI+branch%3Amaster)
