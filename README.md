@@ -26,6 +26,8 @@ It additionally integrates more easily with `subfiles`.
 Resources:
 - [https://www.overleaf.com/learn/latex/Articles/Getting_started_with_BibLaTeX](https://www.overleaf.com/learn/latex/Articles/Getting_started_with_BibLaTeX)
 - [https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex](https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex)
+- [https://en.wikibooks.org/wiki/LaTeX/Bibliographies_with_biblatex_and_biber](https://en.wikibooks.org/wiki/LaTeX/Bibliographies_with_biblatex_and_biber)
+- [https://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib](https://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib)
 
 # Stanford LaTeX Thesis Example
 

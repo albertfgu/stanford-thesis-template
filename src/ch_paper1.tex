@@ -81,5 +81,9 @@ More text here.
 The end of the paper.
 
 % Uncomment to print the bibliography when compiling individual chapters
-% \ifSubfilesClassLoaded{\printbibliography}{}
+\iftoggle{biblatex}{
+  \ifSubfilesClassLoaded{\printbibliography}{}
+}{
+  \ifSubfilesClassLoaded{\bibliography{../bib/mybib}}{}
+}
 \end{document}

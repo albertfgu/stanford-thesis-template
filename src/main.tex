@@ -36,18 +36,22 @@
 \graphicspath{{../fig/}}
 \usepackage{subfiles}  % Best loaded last in the preamble
 
-% If using bibtex as in original template:
-% \bibliographystyle{unsrt}  % Can change to fit your field e.g. pnas2009
-
-% More modern biblatex bibliography management
-% Cite with author-year style; can use `numeric` for numbers instead
-% Sort by default (year, name, title)
-\usepackage[citestyle=authoryear,sorting=ynt]{biblatex}
-% Alias bibtex commands to biblatex versions for convenience
-\newcommand{\citep}{\parencite}
-\newcommand{\citet}{\textcite}
-% Add bibliography files; can be split into multiple files
-\addbibresource{\subfix{../bib/mybib.bib}}
+\newtoggle{biblatex}
+\toggletrue{biblatex}
+\iftoggle{biblatex}{
+  % More modern bibliography management with biblatex
+  % Cite with author-year style; can use `numeric` for numbers instead
+  % Sort by default (year, name, title)
+  \usepackage[citestyle=authoryear,sorting=ynt]{biblatex}
+  % Alias bibtex commands to biblatex versions for convenience
+  \newcommand{\citep}{\parencite}
+  \newcommand{\citet}{\textcite}
+  % Add bibliography files; can be split into multiple files
+  \addbibresource{\subfix{../bib/mybib.bib}}
+}{
+  % Standard bibtex
+  \bibliographystyle{unsrt}  % Can change to fit your field e.g. pnas2009
+}
 
 \begin{document}
 \title{How to Write Theses\\
@@ -77,8 +81,11 @@
 % \chapter{A Long Proof}
 
 % If using bibtex:
-% \bibliography{mybib}
-\printbibliography
+\iftoggle{biblatex}{
+  \printbibliography
+}{
+  \bibliography{../bib/mybib}
+}
 
 % Adds a non-numbered signature page at end (for printing on ACID-FREE paper)
 % (remember to comment out when submitting final version)
