@@ -1,11 +1,5 @@
-# Ignore .pdf, especially since we might be compiling per chapter
-# and generating many PDF files
-*.pdf
-
-###
 ### tex .gitignore template:
 ### https://github.com/github/gitignore/blob/main/TeX.gitignore
-###
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
