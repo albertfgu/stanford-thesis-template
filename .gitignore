@@ -1,3 +1,10 @@
+# Don't track compiled PDF files
+src/*.pdf
+
+# Minted intermediate files
+*.pygstyle
+*.pygtex
+
 ### tex .gitignore template:
 ### https://github.com/github/gitignore/blob/main/TeX.gitignore
 
