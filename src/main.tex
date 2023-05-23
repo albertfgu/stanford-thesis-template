@@ -23,7 +23,6 @@
 \usepackage{siunitx}  % SI units
 \usepackage{tabularx}  % Nice single page tables
 \usepackage{longtable}  % Tables spanning multiple pages
-\usepackage{hyperref}  % URLs
 \usepackage[english]{babel}  % Load before csquotes to suppose ``No multilingual support'' warning
 \usepackage[autostyle,english=american]{csquotes}  % quote orientation
 \MakeOuterQuote{"}
@@ -32,9 +31,27 @@
 % (useful for faster compile times, for final submission switch order)
 \DeclareGraphicsExtensions{.png,.pdf}
 
+% Other packages go here (can also go in custom style file e.g. macros.sty)
+% \usepackage[parfill]{parskip}
+% \usepackage{amsmath,amsfonts,amsthm}
+% \usepackage[inline]{enumitem}
+% \usepackage{booktabs}  % Nice tables
+% \usepackage[dvipsnames]{xcolor}  % More colors
+% \usepackage{subcaption}
+% \usepackage{algorithm,algorithmicx,algpseudocode}
+% \usepackage{comment}
+
+% hyperref should be loaded near last
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=magenta]{hyperref}
+% \usepackage[capitalise,noabbrev]{cleveref}  % For convenient \cref commands
+
 % Setup subfiles package for better multi-file management
 \graphicspath{{../fig/}}
 \usepackage{subfiles}  % Best loaded last in the preamble
+
+% For cross-references between chapters when doing individual compilation
+% May need to be configured to work properly
+\usepackage{xr}
 
 \newtoggle{biblatex}
 \toggletrue{biblatex}
